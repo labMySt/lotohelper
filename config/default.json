@@ -1,0 +1,11 @@
+{
+
+  "Customer": {
+    "dbConfig": "mongodb://localhost:27017/lotohelper",
+    "session": "blablalotoheiper",
+    "credit": {
+      "initialLimit": 100,
+      "initialDays": 1
+    }
+  }
+}
