@@ -12,6 +12,7 @@ const config = require('config');
 //======================================================================
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const fiveforthirtysix = require('./routes/v1/fiveforthirtysix');
 const sessoinSecret = config.get('Customer.session');
 
 //======================================================================
@@ -44,7 +45,7 @@ saveUninitialized: false
 //==================================== routes ============================
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
+app.use('/api/v1/', fiveforthirtysix);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
