@@ -1,5 +1,6 @@
 const request = require("request-promise-native");
-const cheerio = require('cheerio')
+const cheerio = require('cheerio');
+const lotto = require('../models/lottories');
 
 const parser = async function(){
   const URL = "https://lotostat.ru/536/arhiv-536/100/";
@@ -27,8 +28,11 @@ const parser = async function(){
  }
 
 module.exports.reload = function(req, res){
-
   parser()
-  .then(elements => res.send(elements));
-
-}
+  .then(elements =>{
+    lotto.findOneAndUpdate({name:"5from36"},{currentDrowing: 4, drowing: elements}, {upsert: true})
+        .exec((err, doc) => {
+          if(doc) res.send(doc)
+        })
+      })
+};
