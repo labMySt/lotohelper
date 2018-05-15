@@ -36,7 +36,7 @@ ReactDOM.render(
             <Route path="/user" component={User}/>
             <Route path="/lottories" component={Lottories}/>
           <Route path="/5from36" component={LotoHolder}/>
-            <Route component={NotFound}/>
+          
           </Switch>
         </App>
       </Router>

@@ -9,11 +9,14 @@ const session = require('express-session');
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
 const config = require('config');
+var flash = require('connect-flash');
 //======================================================================
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const auth = require('./routes/auth');
 const fiveforthirtysix = require('./routes/v1/fiveforthirtysix');
 const sessoinSecret = config.get('Customer.session');
+
 
 //======================================================================
 require("./database");
@@ -28,9 +31,12 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(passport.initialize());
+app.use(passport.session())
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(flash());
 
 const myStore = new MongoStore({
     mongooseConnection: db
@@ -44,6 +50,7 @@ saveUninitialized: false
 }));
 //==================================== routes ============================
 app.use('/', indexRouter);
+app.use('/auth',auth);
 app.use('/users', usersRouter);
 app.use('/api/v1/', fiveforthirtysix);
 // catch 404 and forward to error handler

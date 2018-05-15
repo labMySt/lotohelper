@@ -1,42 +1,32 @@
 import React from 'react';
-
+import axios from 'axios'
 class SingUp extends React.Component{
-
-    constructor(props) {
-        super(props);
-        this.state = {email: "",
-                      password: "",
-                      ConfirmPassword: ""};
-
-        this.onChangeId = this.onChangeId.bind(this);
-        this.onChangeAmount = this.onChangeAmount.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-      }
-      onChangeId(e) {
-        var val = e.target.value;
-        this.setState({recipient_id: val});
-      }
-    onChangeAmount(e) {
-      var val = e.target.value;
-      this.setState({amount: val});
-    }
-
-    handleSubmit(e) {
-
-    }
+  
     render(){
     return(
-      <form onSubmit={this.handleSubmit}>
-                    <h3>Sing Up</h3>
-                      <p>
-                        <input type="email" value={this.state.email} placeholder="email" onChange={this.onChangeId}/>
-                        <br />
-                      <input type="text" value={this.state.password} placeholder="password" onChange={this.onChangeAmount}/>
-                       <br />
-                      <input type="text" value={this.state.ConfirmPassword} placeholder="confirm password" onChange={this.onChangeAmount}/>
-                      </p>
-                      <input type="submit" value="Confirm" />
-                  </form>
+      <div className="container">
+        <div className="col-sm-6 col-sm-offset-3">
+          <h1><span className="fa fa-sign-in"></span> Signup</h1>
+        <form action="/auth/signup" method="post">
+              <div className="form-group">
+                <label>Email</label>
+                <input type="text" className="form-control" name="email"/>
+              </div>
+              <div className="form-group">
+                <label>Password</label>
+                <input type="password" className="form-control" name="password"/>
+              </div>
+              <div className="form-group">
+                <label>Confirm Password</label>
+              <input type="password" className="form-control" name="confirmPassword"/>
+              </div>
+              <button type="submit" className="btn btn-lg btn-info mr-2">Signup</button>
+        </form>
+        <hr/>
+        <p>Already have an account? <a href="/lognin">Login</a></p>
+        <p>Or go <a href="/">home</a>.</p>
+      </div>
+    </div>
     )
   }
 }

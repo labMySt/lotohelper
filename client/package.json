@@ -2,8 +2,14 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "proxy": {
+    "/auth/*/":{
+    "target": "http://localhost:3001"
+    }
+  },
   "dependencies": {
     "axios": "^0.18.0",
+    "flash": "^1.1.0",
     "mdbreact": "^4.3.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
