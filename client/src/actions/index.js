@@ -17,7 +17,7 @@ const writeError = (data) => ({
 
 export const fetchUser = () =>((dispatch) =>{
   dispatch(sendAuth())
-  axios.get('/signup')
+  axios.get('/auth/me')
    .then((response) => {
        dispatch(writeUser(response.data))
    })

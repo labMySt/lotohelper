@@ -18,12 +18,14 @@ import LognIn from './components/LognIn';
 import User from './components/User';
 import Lottories from './components/Lottories';
 import LotoHolder from './components/loto/LotoHolder';
-
+import rootReduser from './redusers/authUser';
 import registerServiceWorker from './registerServiceWorker';
 
 
 const middleware = applyMiddleware(thunk, createLogger());
-const store = createStore(middleware);
+const store = createStore(rootReduser, middleware);
+
+
 
 ReactDOM.render(
   <Provider store = {store}>
@@ -35,8 +37,8 @@ ReactDOM.render(
             <Route path="/signup" component={SignUp}/>
             <Route path="/user" component={User}/>
             <Route path="/lottories" component={Lottories}/>
-          <Route path="/5from36" component={LotoHolder}/>
-          
+            <Route path="/5from36" component={LotoHolder}/>
+            <Route component={NotFound}/>
           </Switch>
         </App>
       </Router>

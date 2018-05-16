@@ -5,26 +5,31 @@ import { connect } from 'react-redux';
 class Header extends React.Component{
 
   renderContent() {
-   if(!this.props.user)
-       return (
-         <ul className="navbar-nav ml-auto">
-           <li className="nav-item">
-             <a className="nav-link" href="/signup">Sign Up</a>
-           </li>
-           <li className="nav-item">
-             <a className="nav-link" href="/lognin">logn In</a>
-           </li>
-         </ul>
-       );
+    console.log("user before rendering",this.props.user)
+   if(this.props.user)
+   return (
+     <ul className="navbar-nav ml-auto">
+     <li className="nav-item">
+         <a className="nav-link" href="/auth/logout">logOut</a>
+     </li>
+     </ul>
+   );
   else
-       return (
-         <li className="nav-item">
-             <a className="nav-link" href="/auth/logout">logOut</a>
-         </li>
-       );
+  return (
+    <ul className="navbar-nav ml-auto">
+      <li className="nav-item">
+        <a className="nav-link" href="/signup">Sign Up</a>
+      </li>
+      <li className="nav-item">
+        <a className="nav-link" href="/lognin">logn In</a>
+      </li>
+    </ul>
+  );
+
    }
 
   render(){
+    console.log("user", this.props);
     return(
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
         <div className="container">
@@ -45,6 +50,9 @@ class Header extends React.Component{
     )
   }
 }
+const mapStateToHeaderProps = (state) => {
+  return{user: state.user,
+         fetching: state.fatching}
+};
 
-
-export default Header;
+export default connect(mapStateToHeaderProps)(Header);

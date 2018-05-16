@@ -77,11 +77,7 @@ router.post('/login', passport.authenticate('local-login', {
         failureRedirect : '/', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
     }));
-
-    router.get('/test', function(req, res) {
-
-            res.send('test');
-        });
+router.get('/me', (req, res) =>{ console.log(req.user); res.json(req.user)});
 
 router.get('/logout', function(req, res) {
         req.logout();

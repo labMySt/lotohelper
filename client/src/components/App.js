@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from './Header';
 import Footer from './Footer';
-
+import * as actions from '../actions';
 
 class App extends React.Component{
+
+  componentDidMount() {
+    this.props.fetchUser();
+  }
 
   render(){
     return(
@@ -16,4 +20,4 @@ class App extends React.Component{
     )
   }
 }
-export default App;
+export default connect(null, actions)(App);

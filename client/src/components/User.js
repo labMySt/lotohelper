@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 class User extends React.Component {
   renderContent() {
-    if(this.props.user)
+    if(!this.props.user)
         return( <NotFound /> );
     return(
           <div>
