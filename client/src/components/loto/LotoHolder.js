@@ -3,18 +3,16 @@ import TypesOfBets from "./TypesOfBets";
 import BetStat from "./BetStat";
 import Drowings from "./Drowings";
 import NotesHolder from "../notes/NotesHolder";
-
+import "./LotoHolder";
 
 class LotoHolder extends React.Component{
   render(){
     return(
-      <div className="container">
-        this is loto LotoHolder
-        <TypesOfBets></TypesOfBets>
-        <BetStat></BetStat>
-        <Drowings>  </Drowings>
-        <br/>
-        <NotesHolder/>
+        <div className="row">
+        <div className="col"><Drowings/></div>
+        <div className="col" style = {{
+          height: "800px", overflowY: "scroll"}}><Drowings/></div>
+
       </div>
     )
   }

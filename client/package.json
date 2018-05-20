@@ -3,8 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "proxy": {
-    "/auth/*/":{
-    "target": "http://localhost:3001"
+    "/auth/*/": {
+      "target": "http://localhost:3001"
+    },
+    "/api/*/": {
+      "target": "http://localhost:3001"
     }
   },
   "dependencies": {
@@ -12,6 +15,7 @@
     "flash": "^1.1.0",
     "mdbreact": "^4.3.0",
     "react": "^16.3.2",
+    "react-bootstrap-table": "^4.3.1",
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",

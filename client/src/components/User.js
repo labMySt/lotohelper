@@ -9,7 +9,7 @@ class User extends React.Component {
     return(
           <div>
             <h1>This is personal page</h1>
-          <Link to="/lottories" className="btn btn-lg btn-info mr-2">Go to lottories</Link>
+          <a href="/lottories" className="btn btn-lg btn-info mr-2">Go to lottories</a>
           </div>
         );
     }
