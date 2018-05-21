@@ -9,5 +9,5 @@ router.get('/5from36/', function(req, res, next) {
 });
 
 
-router.get('/5from36/reload/',cntrReload.reload);
+router.get('/reload/',cntrReload.reload);
 module.exports = router;
