@@ -11,7 +11,6 @@ class Drowings extends React.Component{
   }
 
   render(){
-   console.log(this.props.drowings);
     return(
       <div>
          <div class="col">

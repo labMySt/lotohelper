@@ -54,7 +54,6 @@ function less32(element){
 //------------------------------------------------------------------------------
 function neighborYes(element){
   for (var member = 1; member < 6; member++){
-    console.log(element[member]);
     if ((element[member] - element[member + 1]) == 1) return true;
     if ((element[member] - element[member + 1]) == -1) return true;
   }
@@ -63,7 +62,6 @@ function neighborYes(element){
 
 function neighborNo(element){
   for (var member = 1; member < 5; member++){
-    console.log(element[member]);
     if ((element[member] - element[member + 1]) == 1) return false;
     if ((element[member] - element[member + 1]) == -1) return false;
   }
@@ -436,44 +434,44 @@ var massFunc = [
    neighborYes,
    neighborNo,
    multiple5Yes,
-   // multiple5No,
-   // multiple7Yes,
-   // multiple7No,
-   // multiple10Yes,
-   // multiple10No,
-   // evenMoreYes,
-   // evenMoreNo,
-   // sumEvenMoreYes,
-   // sumEvenMoreNo,
-   // count123,
-   // count122,
-   // count121,
-   // count183,
-   // count182,
-   // count181,
-   // count243,
-   // count242,
-   // count241,
-   // count363,
-   // count362,
-   // count361,
-   // count25363,
-   // count25362,
-   // count25361,
-   // countEven3,
-   // countEven2,
-   // countEven1,
-   // countNotEven3,
-   // countNotEven2,
-   // countNotEven1,
-   // sum12more,
-   // sum12less,
-   // sum18more,
-   // sum18less,
-   // sum24more,
-   // sum24less,
-   // sum36more,
-   // sum36less
+   multiple5No,
+   multiple7Yes,
+   multiple7No,
+   multiple10Yes,
+   multiple10No,
+   evenMoreYes,
+   evenMoreNo,
+   sumEvenMoreYes,
+   sumEvenMoreNo,
+   count123,
+   count122,
+   count121,
+   count183,
+   count182,
+   count181,
+   count243,
+   count242,
+   count241,
+   count363,
+   count362,
+   count361,
+   count25363,
+   count25362,
+   count25361,
+   countEven3,
+   countEven2,
+   countEven1,
+   countNotEven3,
+   countNotEven2,
+   countNotEven1,
+   sum12more,
+   sum12less,
+   sum18more,
+   sum18less,
+   sum24more,
+   sum24less,
+   sum36more,
+   sum36less
    // ,
    // sum1936more,
    // sum1936less,
@@ -524,4 +522,5 @@ var massFunc = [
    // sumAllTo124,
    // sumAllTo170
  ];
+ console.log("massFUnc", massFunc);
  module.exports = massFunc;

@@ -33,8 +33,8 @@ export const fetchLotto = () =>((dispatch) =>{
   dispatch(sendLotto())
   axios.get('/api/v1/reload/')
    .then((response) => {
-     console.log( typeof response.data.drowing);
-       dispatch(writeLotto(response.data.drowing))
+     console.log("typeOfResponse", response.data);
+       dispatch(writeLotto(response.data))
    })
    .catch((err)=>{
      dispatch(writeLottoError(err))
