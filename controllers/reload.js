@@ -12,9 +12,10 @@ const parser5from36 = async function(){
        $('table#table536').find("tbody>tr").each(function( index, element ) {
          var el = {};
          $(element).find("td").each((i,v) => {
-           if(i ==0){
+           if(i == 0){
              el["number"] = +$(v).text();
            } else {
+             if(!$(v).hasClass("dop"))
              el[i] =  +$(v).text();
            }
          })
@@ -30,12 +31,10 @@ const parser5from36 = async function(){
  }
 
 module.exports.reload = function(req, res){
-  
   parser5from36()
   .then(elements =>{
     lotto.findOneAndUpdate({name:"5from36"},{currentDrowing: 4, drowing: elements}, {upsert: true})
         .exec((err, doc) => {
-
           if(doc) res.json(doc)
         })
       })

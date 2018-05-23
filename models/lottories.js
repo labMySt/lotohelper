@@ -3,19 +3,15 @@ const Schema = mongoose.Schema;
 
 //need to improve this schema
 const lottories = new Schema({
-    name: {
-      type: String,
-      unigue: true,
-      required: true
-    },
-    currentDrowing : {
-        type: Number,
-        unique: true,
-        required: true
-    },
-    drowing: {}
+    "1": Number,
+    "2": Number,
+    "3": Number,
+    "4": Number,
+    "5": Number,
+    number: {type: Number,
+             unique: true
+           }
 });
-
 /**
 //  * @param {earningsModel} targetEarnin
 //  */
