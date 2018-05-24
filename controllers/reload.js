@@ -3,7 +3,7 @@ const cheerio = require('cheerio');
 const lotto = require('../models/lottories');
 
 const parser5from36 = async function(){
-  const URL = "https://lotostat.ru/536/arhiv-536/";
+  const URL = "https://lotostat.ru/536/arhiv-536/100/";
   var result = [];
    return request.get(URL)
    .then(page =>{

@@ -9,14 +9,16 @@ import {
 
 
 
+
 const initialState = {
   fetching: false,
   user: {},
   err: null,
   fetchingLoto: false,
-  drowings: {},
+  drowings: null,
   errLotto: null
 };
+
 
 export default function authUser(state = initialState, action) {
   switch(action.type) {
@@ -25,7 +27,7 @@ export default function authUser(state = initialState, action) {
     case AUTH_USER_ERROR: return { ...state, fetching: false, user: {}, err: action.payload };
     case LOTTO: return { ...state, fetchingLoto: true };
     case LOTTO_FATCHED: return { ...state, fetchingLoto: false, drowings: action.payload };
-    case LOTTO_ERROR: return { ...state, fetchingLoto: false, drowings: {}, errLotto: action.payload }
+    case LOTTO_ERROR: return { ...state, fetchingLoto: false, drowings: null, errLotto: action.payload }
     default: return state;
   }
 

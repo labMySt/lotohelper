@@ -31,9 +31,8 @@ const writeLottoError = (data) => ({ type: LOTTO_ERROR,  payload: data});
 
 export const fetchLotto = () =>((dispatch) =>{
   dispatch(sendLotto())
-  axios.get('/api/v1/reload/')
+  axios.get('/api/v1/getlotto/')
    .then((response) => {
-     console.log("typeOfResponse", response.data);
        dispatch(writeLotto(response.data))
    })
    .catch((err)=>{

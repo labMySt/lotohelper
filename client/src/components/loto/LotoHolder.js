@@ -9,7 +9,6 @@ class LotoHolder extends React.Component{
   render(){
     return(
         <div className="row">
-        <div className="col"><Drowings/></div>
         <div className="col" style = {{
           height: "80vh", overflowY: "scroll"}}><Drowings/></div>
 

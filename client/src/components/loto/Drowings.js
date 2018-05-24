@@ -6,42 +6,40 @@ import {BootstrapTable,
 import '../../../node_modules/react-bootstrap-table/css/react-bootstrap-table.css'
 class Drowings extends React.Component{
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchLotto();
   }
-
   render(){
-    return(
-      <div>
-         <div class="col">
-         <BootstrapTable data = {this.props.drowings} trClassName={{color: 'red'}}>
-           <TableHeaderColumn isKey dataField='number' >
-             number
-           </TableHeaderColumn>
-           <TableHeaderColumn dataField='1'>
-             1
-           </TableHeaderColumn>
-           <TableHeaderColumn dataField='2'>
-             2
-           </TableHeaderColumn>
-           <TableHeaderColumn dataField='3'>
-             3
-           </TableHeaderColumn>
-           <TableHeaderColumn dataField='4'>
-             4
-           </TableHeaderColumn>
-           <TableHeaderColumn dataField='5'>
-             5
-           </TableHeaderColumn>
-           <TableHeaderColumn dataField='6'>
-             6
-           </TableHeaderColumn>
-         </BootstrapTable>
-       </div>
-     </div>
-    )
+      return(
+        <table className="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">1</th>
+              <th scope="col">2</th>
+              <th scope="col">3</th>
+              <th scope="col">4</th>
+              <th scope="col">5</th>
+            </tr>
+         </thead>
+         <tbody>{this.props.drowings?
+           this.props.drowings.map(item =>
+             <tr key = {item.number.toString()}>
+               <th scope="row">{item.number}</th>
+               <td>{item[1]}</td>
+               <td>{item[2]}</td>
+               <td>{item[3]}</td>
+               <td>{item[4]}</td>
+               <td>{item[5]}</td>
+             </tr>
+           ) : <tr><td>Загрузка</td></tr>
+         }
+        </tbody>
+      </table>
+      )
   }
 }
+
 
 const mapStateToDrowingsProps = (state) => {
   return{drowings: state.drowings,
