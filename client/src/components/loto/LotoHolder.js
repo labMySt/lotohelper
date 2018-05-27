@@ -7,13 +7,12 @@ import "./LotoHolder";
 
 class LotoHolder extends React.Component{
   render(){
-    const styleDrowing = { height: "85vh", overflowY: "scroll" };
-    const styleTypeOfBets = { height: "85vh",};
+    const  styleDrowing= { height: "85vh", width: "30vw", overflowY: "scroll" };
     return(
         <div className="row">
         <div className="col" style = {styleDrowing}><TypesOfBets/></div>
-        <div className="col" style = {styleTypeOfBets}><BetStat/></div>
-        <div className="col" style = {styleDrowing}><Drowings/></div>
+        <div className="col" style = {styleDrowing}><BetStat/></div>
+        <div className="col" style = {styleDrowing} ><Drowings/></div>
 
       </div>
     )

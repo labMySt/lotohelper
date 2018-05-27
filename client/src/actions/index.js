@@ -8,7 +8,10 @@ import {
   LOTTO_ERROR,
   BETS,
   BETS_FATCHED,
-  BETS_ERROR
+  BETS_ERROR,
+  STAT,
+  STAT_FATCHED,
+  STAT_ERROR
 } from './types';
 
 
@@ -57,5 +60,26 @@ export const fetchBets = () =>((dispatch) =>{
    })
    .catch((err)=>{
      dispatch(writeBetsError(err))
+   })
+});
+//===============================================================================
+STAT,
+STAT_FATCHED,
+STAT_ERROR
+const getStat = () => ({ type: STAT });
+const writeStat = (data) => ({ type: STAT_FATCHED, payload: data });
+const writeStatError = (data) => ({ type: STAT_ERROR,  payload: data});
+
+export const fetchStat = (log) =>((dispatch) =>{
+  var adress = "/api/v1/getstat/"+log;
+  console.log(adress);
+  dispatch(getStat(adress))
+  axios.get(adress)
+   .then((response) => {
+     console.log(response);
+       dispatch(writeStat(response.data))
+   })
+   .catch((err)=>{
+     dispatch(writeStatError(err))
    })
 });

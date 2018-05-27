@@ -6,7 +6,9 @@ var userSchema = mongoose.Schema({
         Drowing : Number,
         counter : Number,
         ladder : {},
-        log: String
+        log: {type: String,
+              unique: true
+               }
     });
 
 

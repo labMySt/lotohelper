@@ -15,5 +15,6 @@ router.get('/getlotto/',cntrGetLotto.getLotto);
 router.get('/count/',cntrCalculation.calculation);
 router.get('/getbets/',cntrBets.bets);
 router.get('/betspush/',cntrBets.betsPush);
+router.get('/getstat/:log',cntrBets.getStat);
 
 module.exports = router;

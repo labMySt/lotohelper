@@ -17,13 +17,16 @@ class TypeOfBets extends React.Component{
     this.props.fetchBets();
   }
 
+
   render(){
     return(
       <div className="constainer">
        <AdvancedList
          bets={this.props.bets}
          errBets={this.props.errBets}
-         fetchingBets={this.props.fetchingBets}/>
+         fetchingBets={this.props.fetchingBets}
+         fetchStat={this.props.fetchStat}
+      />
       </div>
     )
   }
@@ -37,11 +40,11 @@ const mapStateToTypeOfBetsProps = (state) => {
 const loadingCondition = props =>
     props.fetchingBets;
 
-const List = ({ bets }) =>
+const List = ({ bets, fetchStat }) =>
   <div className="list">
     {bets.map(item =>
       <div className="list-row" key={item.name}>
-      <a href="#" class="list-group-item list-group-item-action">{item.name}</a>
+      <div class="list-group-item list-group-item-action" onClick={()=>{fetchStat(item.log)}}>{item.name}</div>
     </div>)}
   </div>
 
