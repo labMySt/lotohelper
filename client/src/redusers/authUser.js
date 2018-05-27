@@ -4,7 +4,10 @@ import {
   AUTH_USER_ERROR,
   LOTTO,
   LOTTO_FATCHED,
-  LOTTO_ERROR
+  LOTTO_ERROR,
+  BETS,
+  BETS_FATCHED,
+  BETS_ERROR
 } from '../actions/types';
 
 
@@ -15,7 +18,10 @@ const initialState = {
   err: null,
   fetchingLoto: false,
   drowings: [],
-  errLotto: null
+  errLotto: null,
+  fetchingBets: false,
+  bets: null,
+  errBets: null
 };
 
 export default function authUser(state = initialState, action) {
@@ -25,7 +31,10 @@ export default function authUser(state = initialState, action) {
     case AUTH_USER_ERROR: return { ...state, fetching: false, user: {}, err: action.payload };
     case LOTTO: return { ...state, fetchingLoto: true };
     case LOTTO_FATCHED: return { ...state, fetchingLoto: false, drowings: action.payload };
-    case LOTTO_ERROR: return { ...state, fetchingLoto: false, drowings: [], errLotto: action.payload }
+    case LOTTO_ERROR: return { ...state, fetchingLoto: false, drowings: [], errLotto: action.payload };
+    case BETS: return { ...state, fetchingBets: true };
+    case BETS_FATCHED: return { ...state, fetchingBets: false, bets: action.payload };
+    case BETS_ERROR: return { ...state, fetchingBets: false, bets: [], errBets: action.payload }
     default: return state;
   }
 

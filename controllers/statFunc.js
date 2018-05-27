@@ -471,8 +471,7 @@ var massFunc = [
    sum24more,
    sum24less,
    sum36more,
-   sum36less
-   // ,
+   sum36less,
    // sum1936more,
    // sum1936less,
    // difMoreYes,
@@ -522,5 +521,4 @@ var massFunc = [
    // sumAllTo124,
    // sumAllTo170
  ];
- console.log("massFUnc", massFunc);
  module.exports = massFunc;

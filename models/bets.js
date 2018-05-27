@@ -3,7 +3,9 @@ const mass  = require('./stats');
 
 // define the schema for our user model
 var betsSchema = mongoose.Schema({
-        name : String,
+        name : {type: String,
+                 unique: true
+               },
         log : String
     });
 
